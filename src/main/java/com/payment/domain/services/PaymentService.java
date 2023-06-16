@@ -22,8 +22,6 @@ public class PaymentService {
 
     public Payment createPayment(Payment payment) {
         payment.setId(IDGenerator.generateID());
-        payment.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        payment.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
         return paymentRepository.save(payment);
     }
 
@@ -32,7 +30,6 @@ public class PaymentService {
     }
 
     public Payment updatePayment(Payment payment) {
-        payment.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
         return paymentRepository.save(payment);
     }
 
