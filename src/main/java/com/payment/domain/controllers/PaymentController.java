@@ -71,7 +71,7 @@ public class PaymentController {
             @RequestParam(defaultValue = "10") int size // Jumlah data per halaman (default: 10)
     ) {
         // Membuat objek Pageable untuk paginasi
-        Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
+        Pageable pageable = PageRequest.of(page, size);
 
         // Memanggil service untuk mengambil data pembayaran dengan filter dan paginasi
         Page<Payment> payments = paymentService.getPaymentsByFilter(customerId, typeName, pageable);

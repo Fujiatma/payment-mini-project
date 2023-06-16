@@ -20,8 +20,6 @@ public class InventoryService {
 
     public Inventory createInventory(Inventory inventory) {
         inventory.setItemId(IDGenerator.generateID());
-        inventory.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        inventory.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
         return inventoryRepository.save(inventory);
     }
 }

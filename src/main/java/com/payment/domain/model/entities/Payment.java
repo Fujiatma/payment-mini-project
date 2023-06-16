@@ -3,6 +3,7 @@ package com.payment.domain.model.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Entity
 @Table(name = "payment")
+@DynamicInsert
 public class Payment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,11 +32,5 @@ public class Payment implements Serializable {
     private Date date;
 
     private Long customerId;
-
-    @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp createdAt;
-
-    @Column(name = "updated_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp updatedAt;
 
 }
